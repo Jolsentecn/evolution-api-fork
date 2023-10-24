@@ -1088,7 +1088,7 @@ export class WAStartupService {
         ...options,
         auth: {
           creds: this.instance.authState.state.creds,
-          keys: makeCacheableSignalKeyStore(this.instance.authState.state.keys, P({ level: 'error' })),
+          keys: makeCacheableSignalKeyStore(this.instance.authState.state.keys, P({ level: 'error' }) as any),
         },
         logger: P({ level: this.logBaileys }),
         printQRInTerminal: false,
@@ -2718,7 +2718,7 @@ export class WAStartupService {
         'buffer',
         {},
         {
-          logger: P({ level: 'error' }),
+          logger: P({ name: 'error' }) as any,
           reuploadRequest: this.client.updateMediaMessage,
         },
       );
